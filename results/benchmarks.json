@@ -1,0 +1,18 @@
+{
+    "import.Import.timeraw_import_geocat_comp": {
+        "code": "class Import:\n    def timeraw_import_geocat_comp(self):\n        return \"import geocat.comp\"",
+        "min_run_count": 2,
+        "name": "import.Import.timeraw_import_geocat_comp",
+        "number": 1,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "a31d189939828b73cd67532df40f01aebfe362b9fd831be60d8eef67ee309055",
+        "warmup_time": -1
+    },
+    "version": 2
+}
