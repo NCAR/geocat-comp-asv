@@ -1,1 +1,1 @@
-{"regressions": []}
+{"regressions": [["import.Import.timeraw_import_geocat_comp", "graphs/arch-x64/branch-main/cpu-2-core unknown/machine-GH-Actions/os-ubuntu-latest/python/ram-7GB/import.Import.timeraw_import_geocat_comp.json", {}, null, 2.3687783904999833, 1.9830043234999835, [[null, 2693, 1.9830043234999835, 2.3687783904999833]]]]}
