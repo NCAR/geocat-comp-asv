@@ -1,1 +1,1 @@
-{"regressions": [["bench_meteorology.Bench_psychrometric_constant.time_psychrometric_constant", "graphs/arch-x64/branch-main/cpu-2-core unknown/machine-GH-Actions/os-ubuntu-latest/python-3.13/ram-7GB/bench_meteorology.Bench_psychrometric_constant.time_psychrometric_constant.json", {"python": "3.13"}, null, 1.334759166772137e-06, 1.2660082895982066e-06, [[null, 3431, 1.2660082895982066e-06, 1.334759166772137e-06]]]]}
+{"regressions": []}
