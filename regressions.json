@@ -1,1 +1,1 @@
-{"regressions": []}
+{"regressions": [["bench_spherical.Bench_spherical.time_scale_voronoi", "graphs/arch-x64/branch-main/cpu-2-core unknown/machine-GH-Actions/os-ubuntu-latest/python-3.10/ram-7GB/bench_spherical.Bench_spherical.time_scale_voronoi.json", {"python": "3.10"}, null, 0.3159169875000316, 0.2244358105000117, [[null, 3494, 0.2244358105000117, 0.3159169875000316]]]]}
