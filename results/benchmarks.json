@@ -320,6 +320,21 @@
         "version": "dd42ec67e1bd2c46f72b0b460d99dfdcab789acbe6e9b917236d1c5c5219dd59",
         "warmup_time": -1
     },
+    "bench_meteorology.Bench_zonal_meridional_mpsi.time_zonal_meridional_psi": {
+        "code": "class Bench_zonal_meridional_mpsi:\n    def time_zonal_meridional_psi(self):\n        zonal_meridional_psi(self.uxds, lat=self.lat)\n\n    def setup(self):\n        # Load test data\n        try:\n            self.uxds = ux.open_dataset(\"test/grid_subset.nc\", \"test/plev_subset.nc\")\n        except FileNotFoundError:\n            self.uxds = ux.open_dataset(\n                \"../test/grid_subset.nc\", \"../test/plev_subset.nc\"\n            )\n    \n        self.lat = np.arange(36, 45, 1)",
+        "min_run_count": 2,
+        "name": "bench_meteorology.Bench_zonal_meridional_mpsi.time_zonal_meridional_psi",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "afe3b2b71ad3169866b8bf0c3f3174a2dcc3035fe07c23bb49dbeea33fbe610e",
+        "warmup_time": -1
+    },
     "bench_spherical.Bench_spherical.peakmem_decomposition": {
         "code": "class Bench_spherical:\n    def peakmem_decomposition(self):\n        decomposition(self.test_data, self.test_scale, self.theta_grid, self.phi_grid)\n\n    def setup(self):\n        max_harm = 23\n        num_phi = 90\n        num_theta = 180\n    \n        theta = np.linspace(0, tau - tau / num_theta, num_theta)\n        phi = np.linspace(\n            pi / (2 * num_phi),\n            pi - pi / (2 * num_phi),\n            num_phi,\n        )\n        self.theta_grid, self.phi_grid = np.meshgrid(theta, phi)\n        self.test_scale = np.sin(self.phi_grid)\n    \n        count = 0\n        primes = [0, 2, 3, 5, 7, 11, 13, 17, 19, 23]\n        self.test_data = np.zeros(self.phi_grid.shape)\n        self.test_results = []\n        test_harmonics = []\n        for n in range(max_harm + 1):\n            for m in range(n + 1):\n                test_harmonics.append([n, m])\n                self.test_results.append(0)\n                if n in primes and m in primes:\n                    if m in primes[1::2]:\n                        self.test_data += sph_harm_y(\n                            n,\n                            m,\n                            self.phi_grid,\n                            self.theta_grid,\n                        ).imag\n                        self.test_results[-1] = 1j\n                        count += 1\n                    else:\n                        self.test_data += sph_harm_y(\n                            n,\n                            m,\n                            self.phi_grid,\n                            self.theta_grid,\n                        ).real\n                        self.test_results[-1] = 1\n                        count += 1",
         "name": "bench_spherical.Bench_spherical.peakmem_decomposition",
