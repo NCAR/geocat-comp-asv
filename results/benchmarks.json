@@ -84,16 +84,16 @@
         "warmup_time": -1
     },
     "bench_interpolation.Bench_interp_hybrid_to_pressure.peakmem_interp_hybrid_to_pressure": {
-        "code": "class Bench_interp_hybrid_to_pressure:\n    def peakmem_interp_hybrid_to_pressure(self):\n        interp_hybrid_to_pressure(\n            self.data,\n            self.ps,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.pres3d,\n            method=\"log\",\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_atmos = xr.open_dataset(\n                gdf.get(\"netcdf_files/atmos.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_atmos = xr.open_dataset(\"test/atmos.nc\", decode_times=False)\n    \n        # Set up input parameters similar to test class\n        self._hyam = self.ds_atmos.hyam\n        self._hybm = self.ds_atmos.hybm\n        self._p0 = 1000.0 * 100  # Pa\n    \n        self.data = self.ds_atmos.U[0, :, :, :]\n        self.ps = self.ds_atmos.PS[0, :, :]\n        self.pres3d = np.asarray([1000, 950, 800, 700, 600, 500, 400, 300, 200]) * 100",
+        "code": "class Bench_interp_hybrid_to_pressure:\n    def peakmem_interp_hybrid_to_pressure(self):\n        interp_hybrid_to_pressure(\n            self.data,\n            self.ps,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.pres3d,\n            method=\"log\",\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_atmos = xr.open_dataset(\n                gdf.get(\"netcdf_files/atmos.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_atmos = xr.open_dataset(\"test/data/atmos.nc\", decode_times=False)\n    \n        # Set up input parameters similar to test class\n        self._hyam = self.ds_atmos.hyam\n        self._hybm = self.ds_atmos.hybm\n        self._p0 = 1000.0 * 100  # Pa\n    \n        self.data = self.ds_atmos.U[0, :, :, :]\n        self.ps = self.ds_atmos.PS[0, :, :]\n        self.pres3d = np.asarray([1000, 950, 800, 700, 600, 500, 400, 300, 200]) * 100",
         "name": "bench_interpolation.Bench_interp_hybrid_to_pressure.peakmem_interp_hybrid_to_pressure",
         "param_names": [],
         "params": [],
         "type": "peakmemory",
         "unit": "bytes",
-        "version": "beb4184b38941f397936088949dabaed43018c7743d5482eedd636fa495ebb73"
+        "version": "70b455bae9c63be8ab2213d17593524c541250f6b14b472f091db3e6594787b3"
     },
     "bench_interpolation.Bench_interp_hybrid_to_pressure.time_interp_hybrid_to_pressure": {
-        "code": "class Bench_interp_hybrid_to_pressure:\n    def time_interp_hybrid_to_pressure(self):\n        interp_hybrid_to_pressure(\n            self.data,\n            self.ps,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.pres3d,\n            method=\"log\",\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_atmos = xr.open_dataset(\n                gdf.get(\"netcdf_files/atmos.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_atmos = xr.open_dataset(\"test/atmos.nc\", decode_times=False)\n    \n        # Set up input parameters similar to test class\n        self._hyam = self.ds_atmos.hyam\n        self._hybm = self.ds_atmos.hybm\n        self._p0 = 1000.0 * 100  # Pa\n    \n        self.data = self.ds_atmos.U[0, :, :, :]\n        self.ps = self.ds_atmos.PS[0, :, :]\n        self.pres3d = np.asarray([1000, 950, 800, 700, 600, 500, 400, 300, 200]) * 100",
+        "code": "class Bench_interp_hybrid_to_pressure:\n    def time_interp_hybrid_to_pressure(self):\n        interp_hybrid_to_pressure(\n            self.data,\n            self.ps,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.pres3d,\n            method=\"log\",\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_atmos = xr.open_dataset(\n                gdf.get(\"netcdf_files/atmos.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_atmos = xr.open_dataset(\"test/data/atmos.nc\", decode_times=False)\n    \n        # Set up input parameters similar to test class\n        self._hyam = self.ds_atmos.hyam\n        self._hybm = self.ds_atmos.hybm\n        self._p0 = 1000.0 * 100  # Pa\n    \n        self.data = self.ds_atmos.U[0, :, :, :]\n        self.ps = self.ds_atmos.PS[0, :, :]\n        self.pres3d = np.asarray([1000, 950, 800, 700, 600, 500, 400, 300, 200]) * 100",
         "min_run_count": 2,
         "name": "bench_interpolation.Bench_interp_hybrid_to_pressure.time_interp_hybrid_to_pressure",
         "number": 0,
@@ -104,20 +104,20 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "341dffd86bf83824e6014aaf35144155b7eb4c78f15024ab589efb67bed09068",
+        "version": "b94d3a5f22ea199c0deceb23cc60416bd2be31b78e08265df8ab477bd3e81ae1",
         "warmup_time": -1
     },
     "bench_interpolation.Bench_interp_hybrid_to_pressure_extrap_temp.peakmem_interp_hybrid_to_pressure_extrap_temp": {
-        "code": "class Bench_interp_hybrid_to_pressure_extrap_temp:\n    def peakmem_interp_hybrid_to_pressure_extrap_temp(self):\n        interp_hybrid_to_pressure(\n            self.temp_in,\n            self.press_in,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.new_levels,\n            method=\"linear\",\n            extrapolate=True,\n            variable='temperature',\n            t_bot=self.temp_in.isel(lev=-1, drop=True),\n            phi_sfc=self.phis,\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_ccsm = xr.open_dataset(\n                gdf.get(\"netcdf_files/ccsm35.h0.0021-01.demo.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_ccsm = xr.open_dataset(\n                \"test/ccsm35.h0.0021-01.demo.nc\", decode_times=False\n            )\n    \n        # Set up input parameters similar to test class\n        self.temp_in = self.ds_ccsm.T[:, :, :3, :2]\n        self.press_in = self.ds_ccsm.PS[:, :3, :2]\n        self._hyam = self.ds_ccsm.hyam\n        self._hybm = self.ds_ccsm.hybm\n        self._p0 = 1000 * 100  # reference pressure in Pa\n        self.new_levels = np.asarray([500, 925, 950, 1000])\n        self.new_levels *= 100  # new levels in Pa\n        self.phis = self.ds_ccsm.PHIS[:, :3, :2]",
+        "code": "class Bench_interp_hybrid_to_pressure_extrap_temp:\n    def peakmem_interp_hybrid_to_pressure_extrap_temp(self):\n        interp_hybrid_to_pressure(\n            self.temp_in,\n            self.press_in,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.new_levels,\n            method=\"linear\",\n            extrapolate=True,\n            variable='temperature',\n            t_bot=self.temp_in.isel(lev=-1, drop=True),\n            phi_sfc=self.phis,\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_ccsm = xr.open_dataset(\n                gdf.get(\"netcdf_files/ccsm35.h0.0021-01.demo.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_ccsm = xr.open_dataset(\n                \"test/data/ccsm35.h0.0021-01.demo.nc\", decode_times=False\n            )\n    \n        # Set up input parameters similar to test class\n        self.temp_in = self.ds_ccsm.T[:, :, :3, :2]\n        self.press_in = self.ds_ccsm.PS[:, :3, :2]\n        self._hyam = self.ds_ccsm.hyam\n        self._hybm = self.ds_ccsm.hybm\n        self._p0 = 1000 * 100  # reference pressure in Pa\n        self.new_levels = np.asarray([500, 925, 950, 1000])\n        self.new_levels *= 100  # new levels in Pa\n        self.phis = self.ds_ccsm.PHIS[:, :3, :2]",
         "name": "bench_interpolation.Bench_interp_hybrid_to_pressure_extrap_temp.peakmem_interp_hybrid_to_pressure_extrap_temp",
         "param_names": [],
         "params": [],
         "type": "peakmemory",
         "unit": "bytes",
-        "version": "6794ebb08a5821f7370451f7567f378a44dfe8ea2e3c1a606944ab8acf313190"
+        "version": "2f4c56f0992060cde016bf2b14ed886c196ef93b090a62edd7ffcbe3ab061409"
     },
     "bench_interpolation.Bench_interp_hybrid_to_pressure_extrap_temp.time_interp_hybrid_to_pressure_extrap_temp": {
-        "code": "class Bench_interp_hybrid_to_pressure_extrap_temp:\n    def time_interp_hybrid_to_pressure_extrap_temp(self):\n        interp_hybrid_to_pressure(\n            self.temp_in,\n            self.press_in,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.new_levels,\n            method=\"linear\",\n            extrapolate=True,\n            variable='temperature',\n            t_bot=self.temp_in.isel(lev=-1, drop=True),\n            phi_sfc=self.phis,\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_ccsm = xr.open_dataset(\n                gdf.get(\"netcdf_files/ccsm35.h0.0021-01.demo.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_ccsm = xr.open_dataset(\n                \"test/ccsm35.h0.0021-01.demo.nc\", decode_times=False\n            )\n    \n        # Set up input parameters similar to test class\n        self.temp_in = self.ds_ccsm.T[:, :, :3, :2]\n        self.press_in = self.ds_ccsm.PS[:, :3, :2]\n        self._hyam = self.ds_ccsm.hyam\n        self._hybm = self.ds_ccsm.hybm\n        self._p0 = 1000 * 100  # reference pressure in Pa\n        self.new_levels = np.asarray([500, 925, 950, 1000])\n        self.new_levels *= 100  # new levels in Pa\n        self.phis = self.ds_ccsm.PHIS[:, :3, :2]",
+        "code": "class Bench_interp_hybrid_to_pressure_extrap_temp:\n    def time_interp_hybrid_to_pressure_extrap_temp(self):\n        interp_hybrid_to_pressure(\n            self.temp_in,\n            self.press_in,\n            self._hyam,\n            self._hybm,\n            p0=self._p0,\n            new_levels=self.new_levels,\n            method=\"linear\",\n            extrapolate=True,\n            variable='temperature',\n            t_bot=self.temp_in.isel(lev=-1, drop=True),\n            phi_sfc=self.phis,\n        )\n\n    def setup(self):\n        # Load test data\n        try:\n            self.ds_ccsm = xr.open_dataset(\n                gdf.get(\"netcdf_files/ccsm35.h0.0021-01.demo.nc\"), decode_times=False\n            )\n        except Exception:\n            self.ds_ccsm = xr.open_dataset(\n                \"test/data/ccsm35.h0.0021-01.demo.nc\", decode_times=False\n            )\n    \n        # Set up input parameters similar to test class\n        self.temp_in = self.ds_ccsm.T[:, :, :3, :2]\n        self.press_in = self.ds_ccsm.PS[:, :3, :2]\n        self._hyam = self.ds_ccsm.hyam\n        self._hybm = self.ds_ccsm.hybm\n        self._p0 = 1000 * 100  # reference pressure in Pa\n        self.new_levels = np.asarray([500, 925, 950, 1000])\n        self.new_levels *= 100  # new levels in Pa\n        self.phis = self.ds_ccsm.PHIS[:, :3, :2]",
         "min_run_count": 2,
         "name": "bench_interpolation.Bench_interp_hybrid_to_pressure_extrap_temp.time_interp_hybrid_to_pressure_extrap_temp",
         "number": 0,
@@ -128,7 +128,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "ecea8f1fe7570ef05af8d219f55a3181108b3e44fb472c073977c60d5972f28c",
+        "version": "d7a1e6cef1d07882661a5d509c583ffc8c3ff112f3e23cc669d24b0de261f36c",
         "warmup_time": -1
     },
     "bench_interpolation.Bench_interp_multidim.peakmem_interp_multidim_chunk": {
@@ -156,7 +156,7 @@
         "warmup_time": -1
     },
     "bench_interpolation.Bench_interp_sigma_to_hybrid.time_interp_sigma_to_hybrid_1d": {
-        "code": "class Bench_interp_sigma_to_hybrid:\n    def time_interp_sigma_to_hybrid_1d(self):\n        interp_sigma_to_hybrid(\n            self.u[:, 0, 0],\n            self.sigma,\n            self.ps[0, 0],\n            self.hyam,\n            self.hybm,\n            p0=self._p0,\n            method=\"linear\",\n        )\n\n    def setup(self):\n        # Open the netCDF data file \"u.89335.1.nc\" and read in input data\n        try:\n            ds_u = xr.open_dataset(\n                gdf.get(\"netcdf_files/u.89335.1_subset_time361.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_u = xr.open_dataset(\n                \"test/u.89335.1_subset_time361.nc\", decode_times=False\n            )\n    \n        try:\n            ds_ps = xr.open_dataset(\n                gdf.get(\"netcdf_files/ps.89335.1.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_ps = xr.open_dataset(\"test/ps.89335.1.nc\", decode_times=False)\n    \n        self.hyam = xr.DataArray([0.0108093, 0.0130731, 0.03255911, 0.0639471])\n        self.hybm = xr.DataArray([0.0108093, 0.0173664, 0.06069280, 0.1158237])\n    \n        self.u = ds_u.u[:, 0:3, 0:2]\n        self.ps = ds_ps.ps[361, 0:3, 0:2] * 100  # Pa\n        self._p0 = 1000.0 * 100  # Pa\n        self.sigma = ds_ps.sigma",
+        "code": "class Bench_interp_sigma_to_hybrid:\n    def time_interp_sigma_to_hybrid_1d(self):\n        interp_sigma_to_hybrid(\n            self.u[:, 0, 0],\n            self.sigma,\n            self.ps[0, 0],\n            self.hyam,\n            self.hybm,\n            p0=self._p0,\n            method=\"linear\",\n        )\n\n    def setup(self):\n        # Open the netCDF data file \"u.89335.1.nc\" and read in input data\n        try:\n            ds_u = xr.open_dataset(\n                gdf.get(\"netcdf_files/u.89335.1_subset_time361.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_u = xr.open_dataset(\n                \"test/data/u.89335.1_subset_time361.nc\", decode_times=False\n            )\n    \n        try:\n            ds_ps = xr.open_dataset(\n                gdf.get(\"netcdf_files/ps.89335.1.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_ps = xr.open_dataset(\"test/data/ps.89335.1.nc\", decode_times=False)\n    \n        self.hyam = xr.DataArray([0.0108093, 0.0130731, 0.03255911, 0.0639471])\n        self.hybm = xr.DataArray([0.0108093, 0.0173664, 0.06069280, 0.1158237])\n    \n        self.u = ds_u.u[:, 0:3, 0:2]\n        self.ps = ds_ps.ps[361, 0:3, 0:2] * 100  # Pa\n        self._p0 = 1000.0 * 100  # Pa\n        self.sigma = ds_ps.sigma",
         "min_run_count": 2,
         "name": "bench_interpolation.Bench_interp_sigma_to_hybrid.time_interp_sigma_to_hybrid_1d",
         "number": 0,
@@ -167,11 +167,11 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "6288b9b92c396617c64a5dfb06e83e8df9386aa7213d9d947dc4157c2d6794a7",
+        "version": "58e59328cc1a13e6e0ffcba5c290c042f8a6b4887fa7e8399b5186efbf0fc745",
         "warmup_time": -1
     },
     "bench_interpolation.Bench_interp_sigma_to_hybrid.time_interp_sigma_to_hybrid_3d": {
-        "code": "class Bench_interp_sigma_to_hybrid:\n    def time_interp_sigma_to_hybrid_3d(self):\n        interp_sigma_to_hybrid(\n            self.u,\n            self.sigma,\n            self.ps,\n            self.hyam,\n            self.hybm,\n            p0=self._p0,\n            method=\"linear\",\n        )\n\n    def setup(self):\n        # Open the netCDF data file \"u.89335.1.nc\" and read in input data\n        try:\n            ds_u = xr.open_dataset(\n                gdf.get(\"netcdf_files/u.89335.1_subset_time361.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_u = xr.open_dataset(\n                \"test/u.89335.1_subset_time361.nc\", decode_times=False\n            )\n    \n        try:\n            ds_ps = xr.open_dataset(\n                gdf.get(\"netcdf_files/ps.89335.1.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_ps = xr.open_dataset(\"test/ps.89335.1.nc\", decode_times=False)\n    \n        self.hyam = xr.DataArray([0.0108093, 0.0130731, 0.03255911, 0.0639471])\n        self.hybm = xr.DataArray([0.0108093, 0.0173664, 0.06069280, 0.1158237])\n    \n        self.u = ds_u.u[:, 0:3, 0:2]\n        self.ps = ds_ps.ps[361, 0:3, 0:2] * 100  # Pa\n        self._p0 = 1000.0 * 100  # Pa\n        self.sigma = ds_ps.sigma",
+        "code": "class Bench_interp_sigma_to_hybrid:\n    def time_interp_sigma_to_hybrid_3d(self):\n        interp_sigma_to_hybrid(\n            self.u,\n            self.sigma,\n            self.ps,\n            self.hyam,\n            self.hybm,\n            p0=self._p0,\n            method=\"linear\",\n        )\n\n    def setup(self):\n        # Open the netCDF data file \"u.89335.1.nc\" and read in input data\n        try:\n            ds_u = xr.open_dataset(\n                gdf.get(\"netcdf_files/u.89335.1_subset_time361.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_u = xr.open_dataset(\n                \"test/data/u.89335.1_subset_time361.nc\", decode_times=False\n            )\n    \n        try:\n            ds_ps = xr.open_dataset(\n                gdf.get(\"netcdf_files/ps.89335.1.nc\"), decode_times=False\n            )\n        except Exception:\n            ds_ps = xr.open_dataset(\"test/data/ps.89335.1.nc\", decode_times=False)\n    \n        self.hyam = xr.DataArray([0.0108093, 0.0130731, 0.03255911, 0.0639471])\n        self.hybm = xr.DataArray([0.0108093, 0.0173664, 0.06069280, 0.1158237])\n    \n        self.u = ds_u.u[:, 0:3, 0:2]\n        self.ps = ds_ps.ps[361, 0:3, 0:2] * 100  # Pa\n        self._p0 = 1000.0 * 100  # Pa\n        self.sigma = ds_ps.sigma",
         "min_run_count": 2,
         "name": "bench_interpolation.Bench_interp_sigma_to_hybrid.time_interp_sigma_to_hybrid_3d",
         "number": 0,
@@ -182,7 +182,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "7ad68ee715d277c269bfa1715f13a853680f0ff34a926acc182e6cf95396a41c",
+        "version": "7ea9158929f64ec9017469c57f139ba734248223cf76418cba39be38c7bcc085",
         "warmup_time": -1
     },
     "bench_meteorology.Bench_actual_saturation_vapor_pressure.time_actual_saturation_vapor_pressure": {
@@ -321,7 +321,7 @@
         "warmup_time": -1
     },
     "bench_meteorology.Bench_zonal_meridional_mpsi.time_zonal_meridional_psi": {
-        "code": "class Bench_zonal_meridional_mpsi:\n    def time_zonal_meridional_psi(self):\n        zonal_meridional_psi(self.uxds, lat=self.lat)\n\n    def setup(self):\n        # Load test data\n        try:\n            self.uxds = ux.open_dataset(\"test/grid_subset.nc\", \"test/plev_subset.nc\")\n        except FileNotFoundError:\n            self.uxds = ux.open_dataset(\n                \"../test/grid_subset.nc\", \"../test/plev_subset.nc\"\n            )\n    \n        self.lat = np.arange(36, 45, 1)",
+        "code": "class Bench_zonal_meridional_mpsi:\n    def time_zonal_meridional_psi(self):\n        zonal_meridional_psi(self.uxds, lat=self.lat)\n\n    def setup(self):\n        # Load test data\n        try:\n            self.uxds = ux.open_dataset(\n                \"test/data/grid_subset.nc\", \"test/data/plev_subset.nc\"\n            )\n        except FileNotFoundError:\n            self.uxds = ux.open_dataset(\n                \"../test/data/grid_subset.nc\", \"../test/data/plev_subset.nc\"\n            )\n    \n        self.lat = np.arange(36, 45, 1)",
         "min_run_count": 2,
         "name": "bench_meteorology.Bench_zonal_meridional_mpsi.time_zonal_meridional_psi",
         "number": 0,
@@ -332,7 +332,7 @@
         "sample_time": 0.01,
         "type": "time",
         "unit": "seconds",
-        "version": "afe3b2b71ad3169866b8bf0c3f3174a2dcc3035fe07c23bb49dbeea33fbe610e",
+        "version": "fb8ebe0162a7b7adf12b1a455df3e2d44741b3112f4a0ff9f30e7b6565e29ce4",
         "warmup_time": -1
     },
     "bench_spherical.Bench_spherical.peakmem_decomposition": {
